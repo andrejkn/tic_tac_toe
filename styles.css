@@ -8,12 +8,6 @@ body {
     margin: 10px 0;
 }
 
-.field {
-    border: 5px solid #eee;
-    font-size: 120px;
-    background-color: #2e2e3d;
-}
-
 .grid-container {
     display: grid;
     justify-content: center;
@@ -21,23 +15,7 @@ body {
     grid-template-rows: 180px 180px 180px;
 }
 
-.winner-field {
-    background-color: #004500;
-}
-
-.message-container {
-    display: block;
-    height: 60px;
-    font-family: Arial, Helvetica, sans-serif;
-    font-size: 50px;
-    color: #313131;
-}
-
-.panel {
-    display: block;
-}
-
-.panel > button {
+.button {
     background-color: transparent;
     color: #eee;
     font-size: 30px;
@@ -47,9 +25,6 @@ body {
     margin: 10px 0;
 }
 
-.message-container,
-.title,
-.panel,
-.field {
+.title {
     text-align: center;
 }
