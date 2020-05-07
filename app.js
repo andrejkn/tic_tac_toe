@@ -51,6 +51,10 @@ const grid = (() => {
                 state.winningFields = findWinningFields(state.fields, index);
                 state.turnCount++;
                 render();
+
+                if (state.turnCount % 2 === 1) {
+                    zombieMove();
+                }
             }
         },
         getField: (index) => state.fields[index],
@@ -61,6 +65,16 @@ const grid = (() => {
         }
     };
 })();
+
+const zombieMove = () => {
+    const emptyFields = grid.getFields()
+        .map((field, index) => field === null ? index : null)
+        .filter((freeIndex) => freeIndex !== null);
+
+    const nextIndex = Math.floor(Math.random() * emptyFields.length);
+
+    grid.markField(emptyFields[nextIndex]);
+};
 
 const Component = (tag, children, attributes, eventHandlers) => {
     const el = document.createElement(tag);
