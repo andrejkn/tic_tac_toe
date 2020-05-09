@@ -46,14 +46,15 @@ const grid = (() => {
 
     return {
         markField: (index) => {
+            const playerIndex = state.turnCount % players.length;
             if (state.fields[index] === null && state.winningFields === null) {
-                state.fields[index] = players[state.turnCount % players.length];
+                state.fields[index] = players[playerIndex];
                 state.winningFields = findWinningFields(state.fields, index);
                 state.turnCount++;
                 render();
 
-                if (state.turnCount % 2 === 1) {
-                    zombieMove();
+                if (playerIndex === 0) {
+                    setTimeout(zombieMove, 250);
                 }
             }
         },

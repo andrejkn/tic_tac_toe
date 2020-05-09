@@ -12,6 +12,7 @@ body {
     border: 5px solid #eee;
     font-size: 120px;
     background-color: #2e2e3d;
+    cursor: pointer;
 }
 
 .grid-container {
