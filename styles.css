@@ -21,10 +21,6 @@ body {
     grid-template-rows: 180px 180px 180px;
 }
 
-.winner-field {
-    background-color: #004500;
-}
-
 .message-container {
     display: block;
     height: 60px;
