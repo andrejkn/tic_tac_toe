@@ -1,9 +1,9 @@
 body {
-    background-color: #adadad;
+    background-color: #124559;
 }
 
 .title {
-    color: #eee;
+    color: #eff6e0;
     font-size: 50px;
     margin: 10px 0;
 }
@@ -15,9 +15,15 @@ body {
     grid-template-rows: 180px 180px 180px;
 }
 
+.counter {
+    display: block;
+    color: #eee;
+    font-size: 30px;
+}
+
 .button {
     background-color: transparent;
-    color: #eee;
+    color: #eff6e0;
     font-size: 30px;
     border-radius: 10px;
     border: solid #eee 2px;
@@ -27,4 +33,5 @@ body {
 
 .title {
     text-align: center;
+    font-family: Arial, Helvetica, sans-serif;
 }

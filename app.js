@@ -52,7 +52,11 @@ const App = (children) => {
 };
 
 const render = () => {
-    const counter = Text(grid.getTurnCount());
+    const counter = Component(
+        'div',
+        [Text(grid.getTurnCount())],
+        {class: 'counter'}
+    );
 
     const incrementButton = Component(
         'button',
