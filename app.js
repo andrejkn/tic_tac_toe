@@ -7,23 +7,22 @@ const grid = (() => {
 
     const initiateState = () => ({
         fields: Array(numFields).fill(null),
-        turnCount: 0,
-        winningFields: null
+        turnCount: 0
     });
 
     let state = initiateState();
 
     return {
         markField: (index) => {
+            const playerIndex = state.turnCount % players.length;
             if (state.fields[index] === null) {
-                state.fields[index] = players[state.turnCount % players.length];
+                state.fields[index] = players[playerIndex];
                 state.turnCount++;
                 render();
             }
         },
         getField: (index) => state.fields[index],
         getFields: () => state.fields,
-        getWinningFields: () => state.winningFields,
         reset: () => {
             state = initiateState();
         }

@@ -1,17 +1,18 @@
 body {
-    background-color: #adadad;
+    background-color: #124559;
 }
 
 .title {
-    color: #eee;
+    color: #eff6e0;
     font-size: 50px;
     margin: 10px 0;
 }
 
 .field {
-    border: 5px solid #eee;
+    border: 5px solid #01161e;
     font-size: 120px;
-    background-color: #2e2e3d;
+    background-color: #598392;
+    cursor: pointer;
 }
 
 .grid-container {
@@ -21,12 +22,15 @@ body {
     grid-template-rows: 180px 180px 180px;
 }
 
+.winner-field {
+    background-color: #98c9a3;
+}
+
 .message-container {
     display: block;
     height: 60px;
-    font-family: Arial, Helvetica, sans-serif;
     font-size: 50px;
-    color: #313131;
+    color: #eff6e0;
 }
 
 .panel {
@@ -35,7 +39,7 @@ body {
 
 .panel > button {
     background-color: transparent;
-    color: #eee;
+    color: #eff6e0;
     font-size: 30px;
     border-radius: 10px;
     border: solid #eee 2px;
@@ -48,4 +52,5 @@ body {
 .panel,
 .field {
     text-align: center;
+    font-family: Arial, Helvetica, sans-serif;
 }
