@@ -1,3 +1,6 @@
+const PLAYER_1 = '\u{1F680}'; // 🚀
+const PLAYER_2 = '\u{1F312}'; // 🌒
+
 const checkIfWinning = ([f1, f2, f3]) => (f1 && f1 === f2 && f1 === f3 && f2 === f3);
 
 const findWinningFields = (fields, index) => {
@@ -32,8 +35,8 @@ const findWinningFields = (fields, index) => {
 const grid = (() => {
     const numFields = 9;
     const players = [
-        '\u{1F9FC}', // 🧼
-        '\u{1F9A0}'  // 🦠
+        PLAYER_1,
+        PLAYER_2,
     ];
 
     const initiateState = () => ({
@@ -143,9 +146,15 @@ const App = (children) => {
     return el;
 };
 
-const render = () => {
+const render = async () => {
+    const [ p1Score, p2Score ] = await getScores();
+    const score = {
+        p1Score,
+        p2Score,
+    };
+
     const restartButton = Button(
-        'Restart \u{1f987}',
+        'Start Over',
         () => {
             grid.reset();
             render();
@@ -159,6 +168,21 @@ const render = () => {
         winnerFields
             ? `${grid.getField(winnerFields[0])} is the winner!` : ''
         );
+    const scoreContainer = Message(
+        `${score.p1Score} points for ${PLAYER_1}, ${score.p2Score} points for ${PLAYER_2}`
+    );
+
+    if (winnerFields) {
+        if (grid.getField(winnerFields[0]) === PLAYER_1) {
+            score.p1Score += 1;
+            incP1Score();
+            sendReward();
+        } else {
+            score.p2Score += 1;
+            incP2Score();
+        }
+    }
+
     const fields = grid.getFields()
         .map((field, i) => Field(
             field,
@@ -169,6 +193,7 @@ const render = () => {
 
     App([
         messageContainer,
+        scoreContainer,
         panel,
         gridContainer
     ]);
